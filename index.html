@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球主流 AI (人工智能) 大模型综合比较</title>
+    <style>
+        /* CSS (层叠样式表) 代码，用于美化 UI (用户界面) */
+        :root {
+            --primary-color: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            border-bottom: 1px solid #334155;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin: 3rem 0 1.5rem 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .company {
+            font-size: 0.85rem;
+            background-color: #334155;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            color: var(--text-main);
+        }
+        .badge-container {
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        .badge.open { background-color: rgba(22, 101, 52, 0.3); color: #4ade80; border: 1px solid #166534; }
+        .badge.closed { background-color: rgba(127, 29, 29, 0.3); color: #f87171; border: 1px solid #7f1d1d; }
+        .badge.multimodal { background-color: rgba(55, 48, 163, 0.3); color: #818cf8; border: 1px solid #3730a3; }
+        
+        .description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+        }
+        .feature-list li {
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .feature-list li::before {
+            content: "✦";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #334155;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>全球主流 AI (人工智能) 大模型全景图谱</h1>
+        <p class="subtitle">深度对比当今顶尖大语言模型的核心能力、技术路线与应用场景，助您做出最佳选型决策。</p>
+    </header>
+
+    <div class="container">
+        <!-- 国际领先大模型 -->
+        <h2 class="section-title">国际领先梯队</h2>
+        <div class="grid">
+            <!-- GPT (生成式预训练变换器) 模型 -->
+            <div class="card">
+                <h3>GPT-4o / 5.5 <span class="company">OpenAI (开放人工智能公司)</span></h3>
+                <div class="badge-container">
+                    <span class="badge closed">闭源 API (应用程序编程接口)</span>
+                    <span class="badge multimodal">原生多模态</span>
+                </div>
+                <p class="description">全球表现最均衡的旗舰模型，支持毫秒级跨模态（文本、视觉、音频）即时响应，逻辑推理与指令遵循能力处于行业顶峰。</p>
+                <ul class="feature-list">
+                    <li><strong>上下文能力：</strong> 128K 至 1M (一百万) Token (词元) </li>
+                    <li><strong>核心优势：</strong> 综合性能无短板，生态工具完善。</li>
+                    <li><strong>适用场景：</strong> 复杂工作流自动化、高级编程辅助。</li>
+                </ul>
+            </div>
+            
+            <!-- Claude (克劳德) 模型 -->
+            <div class="card">
+                <h3>Claude 3.5 / Opus 4.6 <span class="company">Anthropic (人类公司)</span></h3>
+                <div class="badge-container">
+                    <span class="badge closed">闭源 API (应用程序编程接口)</span>
+                    <span class="badge multimodal">最强代码生成</span>
+                </div>
+                <p class="description">以高安全性、超强长文本解析和极致的编程能力著称。其最新版本在复杂逻辑重构和代码编写基准测试中拔得头筹。</p>
+                <ul class="feature-list">
+                    <li><strong>上下文能力：</strong> 稳健的 200K 至 1M (一百万) Token (词元)</li>
+                    <li><strong>核心优势：</strong> 长文档精准回忆，编程与复杂推理之王。</li>
+                    <li><strong>适用场景：</strong> 深度代码开发、长篇财报及合同分析。</li>
+                </ul>
+            </div>
+
+            <!-- Gemini (双子星) 模型 -->
+            <div class="card">
+                <h3>Gemini 1.5 / 3.1 Pro <span class="company">Google (谷歌)</span></h3>
+                <div class="badge-container">
+                    <span class="badge closed">闭源生态</span>
+                    <span class="badge multimodal">超长上下文</span>
+                </div>
+                <p class="description">谷歌原生多模态架构的结晶，能够同时理解和处理视频、音频、代码和海量文本，刷新了模型上下文窗口的极限。</p>
+                <ul class="feature-list">
+                    <li><strong>上下文能力：</strong> 最高可达 2M (两百万) Token (词元)</li>
+                    <li><strong>核心优势：</strong> 行业唯一原生视频理解，极高的信息吞吐量。</li>
+                    <li><strong>适用场景：</strong> 海量资料检索、视听内容深度分析。</li>
+                </ul>
+            </div>
+            
+            <!-- Llama (美洲驼) 模型 -->
+            <div class="card">
+                <h3>Llama 3.1 <span class="company">Meta (元宇宙公司)</span></h3>
+                <div class="badge-container">
+                    <span class="badge open">开源免费</span>
+                    <span class="badge multimodal">全尺寸覆盖</span>
+                </div>
+                <p class="description">当前最强大的开源基座模型，提供从极小尺寸到超大尺寸级别参数，大幅降低了企业私有化部署顶级 AI (人工智能) 的门槛。</p>
+                <ul class="feature-list">
+                    <li><strong>模型规模：</strong> 包含 405B (四千零五十亿) 顶级参数量</li>
+                    <li><strong>核心优势：</strong> 开源社区活跃度极高，本地微调首选。</li>
+                    <li><strong>适用场景：</strong> 数据敏感型企业本地部署、垂直行业定制。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 国内领军大模型 -->
+        <h2 class="section-title">国产领军梯队</h2>
+        <div class="grid">
+            <!-- DeepSeek (深度求索) 模型 -->
+            <div class="card">
+                <h3>DeepSeek V3 / V4 <span class="company">DeepSeek (深度求索)</span></h3>
+                <div class="badge-container">
+                    <span class="badge open">完全开源</span>
+                    <span class="badge multimodal">极致性价比</span>
+                </div>
+                <p class="description">采用高效的 MoE (混合专家模型) 架构，在极低的推理成本下实现了对标国际顶尖水平的代码与数学推理能力。</p>
+                <ul class="feature-list">
+                    <li><strong>技术架构：</strong> 高性价比 MoE (混合专家模型)</li>
+                    <li><strong>核心优势：</strong> 成本击穿行业底线，中文逻辑极强。</li>
+                    <li><strong>适用场景：</strong> 批量数据处理、高并发 AI (人工智能) 应用。</li>
+                </ul>
+            </div>
+
+            <!-- Qwen (通义千问) -->
+            <div class="card">
+                <h3>Qwen 2.5 / 3.5 <span class="company">Alibaba (阿里巴巴)</span></h3>
+                <div class="badge-container">
+                    <span class="badge open">全面开源</span>
+                    <span class="badge multimodal">多模态双语</span>
+                </div>
+                <p class="description">阿里推出的全尺寸、多模态开源模型家族，其中文理解、知识丰富度与长文本生成能力稳居国内第一梯队。</p>
+                <ul class="feature-list">
+                    <li><strong>长文本支持：</strong> 128K Token (词元) 及以上</li>
+                    <li><strong>核心优势：</strong> 中英双语能力均衡，语音与视觉插件完善。</li>
+                    <li><strong>适用场景：</strong> 企业知识库建设、全场景 AI (人工智能) 助手。</li>
+                </ul>
+            </div>
+
+            <!-- GLM (通用语言模型) -->
+            <div class="card">
+                <h3>GLM-4 / 5.2 <span class="company">Zhipu AI (智谱人工智能)</span></h3>
+                <div class="badge-container">
+                    <span class="badge closed">商用及开源版</span>
+                    <span class="badge multimodal">企业级工具</span>
+                </div>
+                <p class="description">在长程自治任务、工具调用和 Agent (智能体) 构建方面表现卓越，是国内企业落地化服务的标杆产品。</p>
+                <ul class="feature-list">
+                    <li><strong>智能体能力：</strong> 强大的 Function Calling (函数调用) 功能</li>
+                    <li><strong>核心优势：</strong> 多轮对话极其稳定，法律与金融领域微调效果好。</li>
+                    <li><strong>适用场景：</strong> 复杂 Agent (智能体) 搭建、企业级智能客服。</li>
+                </ul>
+            </div>
+
+            <!-- Kimi (月之暗面) -->
+            <div class="card">
+                <h3>Kimi K2.5 / K3 <span class="company">Moonshot AI (月之暗面)</span></h3>
+                <div class="badge-container">
+                    <span class="badge closed">闭源商用</span>
+                    <span class="badge multimodal">超长文本标杆</span>
+                </div>
+                <p class="description">国内长上下文处理的先驱，其最新的大模型版本在代码编写和复杂逻辑推理测试跑分上表现出了极强的爆发力。</p>
+                <ul class="feature-list">
+                    <li><strong>最大亮点：</strong> 支持高达 2M (两百万) 字上下文无损解析</li>
+                    <li><strong>核心优势：</strong> 极强的文件并行阅读与联网精准检索。</li>
+                    <li><strong>适用场景：</strong> 海量研报阅读总结、巨型代码库重构分析。</li>
+                </ul>
+            </div>
+            
+            <!-- ERNIE Bot (知识增强大模型) -->
+            <div class="card">
+                <h3>文心一言 4.0 / 5.1 <span class="company">Baidu (百度)</span></h3>
+                <div class="badge-container">
+                    <span class="badge closed">闭源商用</span>
+                    <span class="badge multimodal">搜索增强</span>
+                </div>
+                <p class="description">深度集成百度搜索与庞大的知识图谱，中文文化理解底蕴深厚，商业插件生态完善，全面赋能日常办公与内容创作。</p>
+                <ul class="feature-list">
+                    <li><strong>特色技术：</strong> RAG (检索增强生成) 与平台级深度整合</li>
+                    <li><strong>核心优势：</strong> 卓越的中文语义理解能力、国内本土合规性最佳。</li>
+                    <li><strong>适用场景：</strong> 搜索引擎深度集成、标准公文与自媒体营销创作。</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>数据综合自最新模型基准评测与产业报告 | AI (人工智能) 模型能力持续迭代更新，具体参数请以各官方发布为准。</p>
+    </footer>
+</body>
+</html>
