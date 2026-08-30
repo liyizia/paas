@@ -1,10 +1,9 @@
 name: anynines平台
 
 on:
-#  push:
-#    branches:
-#      - anynines
   workflow_dispatch:
+  schedule:
+    - cron: '0 3 */25 * *' # 每 25 天凌晨 3 点自动重新构建一次，防止平台清理
 
 env:
   CF_API: "https://api.de.a9s.eu"
@@ -73,3 +72,15 @@ jobs:
 
           # 重启应用使环境变量生效
           cf restart "$APP_NAME"
+
+          # ---------- 自动同步新订阅地址到 Cloudflare Worker KV ----------
+          NEW_SUB_URL="https://${DOMAIN_VALUE}/sub"
+          echo "Syncing new subscription URL to Cloudflare KV: $NEW_SUB_URL"
+
+          curl -s -X PUT "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CF_ACCOUNT_ID }}/storage/kv/namespaces/${{ secrets.CF_KV_NAMESPACE_ID }}/values/SUB_URL" \
+            -H "X-Auth-Email: ${{ secrets.CF_EMAIL }}" \
+            -H "X-Auth-Key: ${{ secrets.CF_GLOBAL_KEY }}" \
+            -H "Content-Type: text/plain" \
+            --data "$NEW_SUB_URL"
+
+          echo "Cloudflare KV subscription updated successfully!"
