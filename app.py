@@ -546,11 +546,11 @@ async def http_handler(request):
         ss_tls_param = 'tls;' if Tls == 'tls' else ''
 
         # 生成配置链接
-        vless_url = f"vless://{UUID}@{CurrentDomain}:{CurrentPort}?encryption=none&security={tls_param}&sni={CurrentDomain}&fp=chrome&type=ws&host={CurrentDomain}&path=%2F{WSPATH}#{name_part}"
-        trojan_url = f"trojan://{UUID}@{CurrentDomain}:{CurrentPort}?security={tls_param}&sni={CurrentDomain}&fp=chrome&type=ws&host={CurrentDomain}&path=%2F{WSPATH}#{name_part}"
+        vless_url = f"vless://{UUID}@{CurrentDomain}:{CurrentPort}?encryption=none&security={tls_param}&sni={CurrentDomain}&alpn=http%2F1.1&type=ws&host={CurrentDomain}&path=%2F{WSPATH}#{name_part}"
+        trojan_url = f"trojan://{UUID}@{CurrentDomain}:{CurrentPort}?security={tls_param}&sni={CurrentDomain}&alpn=http%2F1.1&type=ws&host={CurrentDomain}&path=%2F{WSPATH}#{name_part}"
 
         ss_method_password = base64.b64encode(f"none:{UUID}".encode()).decode()
-        ss_url = f"ss://{ss_method_password}@{CurrentDomain}:{CurrentPort}?plugin=v2ray-plugin;mode%3Dwebsocket;host%3D{CurrentDomain};path%3D%2F{WSPATH};{ss_tls_param}sni%3D{CurrentDomain};skip-cert-verify%3Dtrue;mux%3D0#{name_part}"
+        ss_url = f"ss://{ss_method_password}@{CurrentDomain}:{CurrentPort}?alpn=http%2F1.1&plugin=v2ray-plugin;mode%3Dwebsocket;host%3D{CurrentDomain};path%3D%2F{WSPATH};{ss_tls_param}sni%3D{CurrentDomain};skip-cert-verify%3Dtrue;mux%3D0#{name_part}"
 
         subscription = f"{vless_url}\n{trojan_url}\n{ss_url}"
         base64_content = base64.b64encode(subscription.encode()).decode()
@@ -1399,6 +1399,8 @@ async def main():
     app.router.add_get('/', http_handler)
     app.router.add_get(f'/{SUB_PATH}', http_handler)
     app.router.add_get(f'/{WSPATH}', websocket_handler)
+    app.router.add_get(f'/{WSPATH}/', websocket_handler)
+    app.router.add_get(f'/{WSPATH}/{{tail:.*}}', websocket_handler)
 
     # 启动服务
     runner = web.AppRunner(app)
